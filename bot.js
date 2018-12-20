@@ -35,7 +35,7 @@ client.on('ready', () => {
     console.log(`Users! [ " ${client.users.size} " ]`);
     console.log('')
     console.log('╚[════════════════════════════════════]╝')
-          client.user.setActivity("By: @!       Ax7 🍺.#0010 ً",{type: 'STREAMING'});   
+          client.user.setActivity("#help ً",{type: ' Online '});   
 });
 
 client.on('ready', () => {
@@ -45,7 +45,7 @@ client.on('ready', () => {
     console.log(`on  ${client.guilds.size} Servers `);
     console.log(`~~~~~~~~~~~~~~~~~~~~~~~~`);
     console.log(`Logged in as ${client.user.tag}!`);
-    client.user.setGame(`#help | By: @!       Ax7 🍺.#0010 `,"http://twitch.tv/IxAx7")
+    client.user.setGame(`#help `,"http://twitch.tv/IxAx7")
     client.user.setStatus("dnd")
  });
 
@@ -275,8 +275,12 @@ client.on('message', message => {
 
  message.author.sendMessage(`
  **
-   〖 вσт cσвяα 〗 ➙   ✎  @!       Ax7 🍺.#0010
+   〖 вσт cσвяα 〗 ➙   ✎  
+@!       Ax7 🍺.#0010
 
+@ᵂᴼᴸꜰ#0001
+
+@M7мD#1234
 ====================
 وصف عن البوت
 :gem: البوت فيه كثير ميزات حلوة و جميلة

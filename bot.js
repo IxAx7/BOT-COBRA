@@ -35,7 +35,7 @@ client.on('ready', () => {
     console.log(`Users! [ " ${client.users.size} " ]`);
     console.log('')
     console.log('╚[════════════════════════════════════]╝')
-          client.user.setActivity("#help ً",{type: 'STREAMING'});   
+          client.user.setActivity(": -help ً",{type: ' Online '});   
 });
 
 client.on('ready', () => {
@@ -275,18 +275,17 @@ client.on('message', message => {
 
  message.author.sendMessage(`
  **
-**
-   〖 вσт cσвяα 〗 ➙   ✎  @!       Ax7 🍺.#0010 & @ᵂᴼᴸꜰ#0001
+  〖 вσт cσвяα 〗 ➙   ✎  @!       Ax7 🍺.#0010 & @ᵂᴼᴸꜰ#0001
 
 ====================
 وصف عن البوت
-gem البوت فيه كثير ميزات حلوة و جميلة
+:gem: البوت فيه كثير ميزات حلوة و جميلة
 
- rocket البوت يعمل 24 ساعه
+ :rocket: البوت يعمل 24 ساعه
 
- up خدمة سبورت 24/7
+ :up: خدمة سبورت 24/7
 
- free البوت مجاني %100
+ :free: البوت مجاني %100
 Administrative Commands
  『#move @user / لسحب الشخص الى روومك』
 『#bc / رسالة جماعية الى كل اعضاء السيرفر』
@@ -313,16 +312,17 @@ General Commands
 『#support / سيرفر الدعم』
 『#cont / ارسال اقتراح او لمراسلة صاحب البوت』
 Music Commands
- 『#play / لتشغيل اغنية』
-『#skip / تخطي الأغنية』
-『#vol / رفع الصوت و خفض الصوت』
-『#stop / الخروج من رومك الصوتي』
-『#pause / ايقاف الاغنية مؤقتا』
-『#np / اظهار الاغنية اللي انت مشغلها حاليا』
-『#resume / تكملة الاغنية』
-『#queue / اظهار قائمة التشغيل』
+ 『-play / لتشغيل اغنية』
+『-skip / تخطي الأغنية』
+『-vol / رفع الصوت و خفض الصوت』
+『-stop / الخروج من رومك الصوتي』
+『-pause / ايقاف الاغنية مؤقتا』
+『-np / اظهار الاغنية اللي انت مشغلها حاليا』
+『-resume / تكملة الاغنية』
+『-queue / اظهار قائمة التشغيل』
 ====================
 
+====================
 ====================
 
 `);
@@ -351,7 +351,7 @@ msg.channel.send({embed: embed})
 });
 
 client.on('message', message => {
-                 var prefix = "#"
+                 var prefix = "-"
            if (message.content.startsWith(prefix + "id")) {
      var args = message.content.split(" ").slice(1);
      let user = message.mentions.users.first();
@@ -422,7 +422,7 @@ let embed = new Discord.RichEmbed()
 
 
 client.on("message", message => {
-        var prefix = "#";// البرفكس
+        var prefix = "-";// البرفكس
     if(message.content.startsWith(prefix + "setwlc")) {
         let args = message.mentions.channels.first();
             if(!args) message.channel.send("** منشن روم . :x:**").then(m => {    
@@ -451,6 +451,33 @@ m.delete(1500);
 
 client.on("message", message => {
         var prefix = "-";//البرفكس
+    if(message.content.startsWith(prefix + "setout")) {
+        let args = message.mentions.channels.first();
+            if(!args) message.channel.send("** منشن روم . :x:**");
+                if(!message.guild.member(message.author.id).hasPermission("MANAGE_CHANNELS")) return message.channel.send("**ليس لديك صلاحيات . :x:**");
+                        message.channel.send(`**${args}. لقد تم شغل الروم هذا للترحيب.**`);
+                    client.on("guildMemberRemove", (member) => {
+                            if(member.user.bot) return;
+                         var embed = new Discord.RichEmbed()
+    .setAuthor(member.user.username, member.user.avatarURL)
+  .setThumbnail(member.user.avatarURL)
+  .setTitle('Out Member')
+  .setDescription('GoodBye')
+  .addField('**ID Member:',"" +  member.user.id, true)
+    .addField('**Tage Member:', member.user.discriminator, true)
+    .addField('Created At Member', member.user.createdAt, true)
+    .addField(' :bust_in_silhouette:  Your Number',`**[ ${member.guild.memberCount} ]**`,true)
+    .setColor('RED')
+  .setFooter(member.guild.name, member.guild.iconURL, true)
+                         
+   args.send({embed : embed});
+                    });
+    }
+});
+
+
+client.on("message", message => {
+        var prefix = "#";
     if(message.content.startsWith(prefix + "setout")) {
         let args = message.mentions.channels.first();
             if(!args) message.channel.send("** منشن روم . :x:**");
@@ -685,6 +712,10 @@ if (message.content.startsWith(adminprefix + 'setT')) {
     message.channel.sendMessage(`**تم تغيير تويتش البوت إلى  ${argresult}**`)
 }
 });
+
+
+
+
 
 client.on('message', msg => {
   if(msg.content === 'هلا')
